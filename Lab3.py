@@ -1,12 +1,12 @@
 print("Lab 3 - Software Unit Testing with PyTest")
 
-SORT_ASCENDING = 0
-SORT_DESCENDING = 1
+SORT_ASCENDING = 0 # mode identifier for ascending order
+SORT_DESCENDING = 1 # mode identifier for descending order
 
 
 def bubble_sort(arr, sorting_order):
 
-    # Copy input list to results list
+    # Copy input list to results list (ensures original list is not modified)
     arr_result = arr.copy()
 
     # Get number of elements in the list
@@ -23,18 +23,19 @@ def bubble_sort(arr, sorting_order):
 
                 if sorting_order == SORT_ASCENDING:
                     if arr_result[j] > arr_result[j + 1]:
-                        arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j]
-
+                        arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j] 
+                    # swap elements when left element is greater than right element
 
                 elif sorting_order == SORT_DESCENDING:
                     if arr_result[j] < arr_result[j + 1]:
                         arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j]
+                    # swap elements when left element is smaller than right element
 
                 else:
                     # Return an empty array
-                    arr_result = []
+                    arr_result = [] # invalid sorting order
     else:
-        arr_result = -1
+        arr_result = -1 # return -1 for lists with 10 or more elements(too long)
 
     return arr_result
 
